@@ -1,13 +1,13 @@
 # blog
 
 fullstack demo -[vue3]("https://cn.vuejs.org/")
- 
-## provider
-### backend
+
+### provider
+#### backend
  * multer //处理上传
  * sqlite3 //数据库 方便服务端移植  `install sqlite3@5.0.0`
  * [uuid-雪花算法]("https://gitee.com/baby_muxin/idgenerator/tree/master")  //生成唯一id
-### fronted
+#### fronted
  * axios  //与服务端通信
  * pinia  //状态管理
  * sass
