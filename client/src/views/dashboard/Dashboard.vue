@@ -1,4 +1,4 @@
-<template >
+<template>
   <div class="main-panel">
     <div class="menus">
       <div v-for="(menu, index) in menus" @click="toPage(menu)">
@@ -8,7 +8,7 @@
     <div style="padding: 20px; width: 100%">
       <router-view></router-view>
     </div>
-    <div class="title">后台管理系统</div>
+    <!-- <div class="title">后台管理系统</div> -->
   </div>
 </template>
 <script setup>
@@ -29,33 +29,36 @@ let menus = [
 ]
 
 const toPage = (menu) => {
-    if(menu.href=='logout'){
-        router.push("/login")
-    }else{
-        router.push(menu.href)
-    }
+  if (menu.href == 'logout') {
+    router.push('/login')
+  } else {
+    router.push(menu.href)
+  }
 }
 </script>
 <style lang="scss" scoped>
 .main-panel {
   display: flex;
+  min-height: 100vh;
   color: #64676a;
   max-width: 1500px;
   margin: auto;
 }
 .menus {
-  padding: 20px 0;
+  padding: 50px 0;
   box-sizing: border-box;
   line-height: 55px;
   text-align: center;
   width: 180px;
-  height: 95vh;
-  border-right: 1px solid #dadada;
+  border-right: 1px solid grey;
 
   div {
     cursor: pointer;
+    font-size: large;
+    margin-bottom: 15px;
+    font-weight: 500;
     &:hover {
-      color: #fd760e;
+      color: #12693b;
     }
   }
 }

@@ -1,9 +1,9 @@
-<template >
+<template>
   <n-tabs v-model:value="tabValue" type="line" justify-content="start" animated>
     <n-tab-pane name="list" tab="文章列表">
       <div v-for="(blog, index) in blogListInfo" style="margin-bottom: 15px">
         <n-card :title="blog.title">
-          {{ blog.content }}
+          <div v-html="blog.content"></div>
 
           <template #footer>
             <!-- 对齐发布时间和按钮 -->
@@ -38,7 +38,7 @@
       </n-form-item>
     </n-tab-pane>
 
-    <n-tab-pane name="update" tab="修改">
+    <n-tab-pane name="update" tab="修改文章" disabled>
       <n-form-item label="标题">
         <n-input v-model:value="updateArtical.title" placeholder="请输入标题" />
       </n-form-item>
@@ -99,7 +99,7 @@ const loadBlogs = async () => {
   // let res = await axios.get('/blog/search')
   let res = await axios.get(`/blog/search?page=${pageInfo.page}&pageSize=${pageInfo.pageSize}`)
   let temp_rows = res.data.data.rows
-
+  // console.log(res)
   for (let rows of temp_rows) {
     rows.content += '...'
     let d = new Date(rows.create_time)
@@ -129,9 +129,11 @@ const add = async () => {
   if (res.data.code == 200) {
     addArtical.title = ''
     addArtical.categoryId = ''
-    addArtical.content = null
-    
+    //TODO: 还需要清除content内容
+    // addArtical.content = null
     message.info(res.data.msg)
+    tabValue.value = 'list'
+    loadBlogs()
   } else {
     message.error(res.data.msg)
   }
@@ -174,5 +176,4 @@ const toDelete = async (blog) => {
   }
 }
 </script>
-<style lang="" scoped>
-</style>
+<style lang="scss" scoped></style>

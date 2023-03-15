@@ -122,7 +122,7 @@ router.get("/search", async (req, res) => {
     }
     //查询分页数据
     //对数据内容长度进行限制
-    let searchSql = " SELECT `id`,`category_id`,`create_time`,`title`,substr(`content`,0,50) AS `content`  FROM `blog` " + whereSqlStr + " ORDER BY `create_time` DESC LIMIT ?,?"
+    let searchSql = " SELECT `id`,`category_id`,`create_time`,`title`,substr(`content`,0,150) AS `content`  FROM `blog` " + whereSqlStr + " ORDER BY `create_time` DESC LIMIT ?,?"
     // let searchSql = " SELECT  * FROM `blog` " + whereSqlStr + " ORDER BY `create_time` DESC LIMIT ?,?"
     //传入3，5 -->经计算为 10,5  第二页从10到15
     let searchSqlParams = params.concat([(page - 1) * pageSize, pageSize])

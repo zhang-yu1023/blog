@@ -40,7 +40,7 @@ const back = () => {
 </style>
 <style lang="scss" scoped>
 .container {
-  width: 1200px;
+  width : 100wh;
   margin: 0 auto;
 }
 </style>

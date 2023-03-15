@@ -15,7 +15,7 @@ const path = require("path")
 const { db, genid } = require("./db/DbUtils")
 
 
-//开发跨域请求
+//开发跨域请求(以express为例)
 app.use(function (req, res, next) {
     //设置允许跨域的域名，*代表允许任意域名
     res.header("Access-Control-Allow-Origin", "*");
@@ -26,6 +26,7 @@ app.use(function (req, res, next) {
     if (req.method == "OPTIONS") res.sendStatus(200); //让options尝试请求快速结束
     else next();
 })
+
 
 
 //前后端交互

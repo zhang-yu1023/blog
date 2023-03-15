@@ -1,4 +1,4 @@
-<template >
+<template>
   <div class="container">
     <div class="nav">
       <div @click="homePage">首页</div>
@@ -24,9 +24,10 @@
       <n-button type="primary" ghost @click="loadBlogs(0)">搜索</n-button>
     </n-space>
 
-    <div v-for="(blog, index) in blogListInfo" style="margin-bottom: 15px; cursor: pointer">
-      <n-card :title="blog.title" @click="toDetail(blog)">
-        {{ blog.content }}
+    <div    v-for  = "(blog, index) in blogListInfo" class = "blog-card">
+    <n-card :title = "blog.title" @click                   = "toDetail(blog)">
+        <!-- 去除标签显示 -->
+        <p v-html="blog.content"></p>
 
         <template #footer>
           <!-- 对齐发布时间和按钮 -->
@@ -92,9 +93,7 @@ const loadCategorys = async () => {
       label: item.name,
       value: item.id
     }
-  })
-  // console.log(categoryOptions.value)
-  // categoryList.value = res.data.rows
+  }) // categoryList.value = res.data.rows
 }
 const homePage = () => {
   router.push('/')
@@ -133,32 +132,48 @@ const searchByCategory = (categoryId) => {
   loadBlogs()
 }
 </script>
+
 <style lang="scss" scoped>
 .container {
-  width: 1200px;
+  // width: 100%;
+  
+  max-width: calc(100% - 30px);
+  margin: 0 30px;
   margin: 0 auto;
 }
+
 .nav {
   display: flex;
   font-size: 20px;
   padding-top: 20px;
   color: #64676a;
+
   div {
     cursor: pointer;
-    margin-right: 15px;
+    margin-right: 40px;
+
     &:hover {
       color: orange;
     }
+
     span {
       font-size: 12px;
     }
   }
 }
+.blog-card {
+  margin-bottom: 15px;
+  cursor: pointer;
+  // width: 65%;
+  // background-color: rgba(255, 255, 255, 0.5);
+}
+
 .footer {
   text-align: center;
   line-height: 25px;
   color: #64676a;
 }
+
 .search {
   margin-bottom: 15px;
 }

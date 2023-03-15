@@ -1,10 +1,24 @@
+/* 引入导致naive-ui tab-bar失效 */
 /* @import './base.css'; */
+body {
+  /* 百分百窗口高度 */
+  height: 100%;
+  width: 100%;
+  min-width: 300px;
+  /* 渐变背景 */
+  background: linear-gradient(150deg, #8fe2eb, #fef9d7);
+  /* 弹性布局 垂直居中 */
+  /* display: flex; */
+  /* justify-content: center;
+  align-items: center; */
 
+  /* 溢出隐藏 */
+  /* overflow: hidden; */
+  /* overflow-x: hidden; */
+}
 #app {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
-
   font-weight: normal;
 }
 
@@ -15,21 +29,32 @@ a,
   transition: 0.4s;
 }
 
-/* @media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+.clearfix:before,
+.clearfix:after {
+  content: '';
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  } */
-/* } */
+.n-card,
+.n-input,
+.n-base-selection .n-base-selection-label {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.n-divider:not(.n-divider--vertical) {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.n-table,
+.n-table th,
+.n-table td {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+}
+.n-table th {
+  background-color: hsl(160deg 19.87% 78.38% / 50%) !important;
+}

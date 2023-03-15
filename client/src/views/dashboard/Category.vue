@@ -1,6 +1,6 @@
-<template >
-  <div>
-    <n-button @click="showAddModal = true">添加</n-button>
+<template>
+  <n-button @click="showAddModal = true">添加</n-button>
+  <div style="margin-top: 20px">
     <n-table :bordered="false" :single-line="false">
       <thead>
         <tr>
@@ -88,6 +88,7 @@ const add = async () => {
   //   console.log(res)
   if (res.data.code == 200) {
     loadDatas()
+    addCategory.name = null
     message.info(res.data.msg)
   } else {
     message.error(res.data.msg)
@@ -134,5 +135,4 @@ const update = async () => {
   showUpdateModal.value = false
 }
 </script>
-<style lang="" scoped>
-</style>
+<style lang="scss" scoped></style>
