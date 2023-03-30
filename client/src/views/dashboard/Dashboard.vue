@@ -4,6 +4,7 @@
       <div v-for="(menu, index) in menus" @click="toPage(menu)">
         {{ menu.name }}
       </div>
+      <button @click="toMainPage()">回到首页</button>
     </div>
     <div style="padding: 20px; width: 100%">
       <router-view></router-view>
@@ -34,6 +35,10 @@ const toPage = (menu) => {
   } else {
     router.push(menu.href)
   }
+}
+
+const toMainPage = () => {
+  router.push('/main')
 }
 </script>
 <style lang="scss" scoped>

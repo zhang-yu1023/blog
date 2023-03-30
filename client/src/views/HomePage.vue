@@ -24,8 +24,8 @@
       <n-button type="primary" ghost @click="loadBlogs(0)">搜索</n-button>
     </n-space>
 
-    <div    v-for  = "(blog, index) in blogListInfo" class = "blog-card">
-    <n-card :title = "blog.title" @click                   = "toDetail(blog)">
+    <div v-for="(blog, index) in blogListInfo" class="blog-card">
+      <n-card :title="blog.title" @click="toDetail(blog)">
         <!-- 去除标签显示 -->
         <p v-html="blog.content"></p>
 
@@ -96,7 +96,7 @@ const loadCategorys = async () => {
   }) // categoryList.value = res.data.rows
 }
 const homePage = () => {
-  router.push('/')
+  router.push('/main')
 }
 const dashboard = () => {
   router.push('/login')
@@ -124,6 +124,8 @@ const loadBlogs = async (page = 0) => {
 }
 
 const toDetail = (blog) => {
+  console.log(blog)
+
   router.push({ path: '/detail', query: { id: blog.id } })
 }
 
@@ -136,7 +138,7 @@ const searchByCategory = (categoryId) => {
 <style lang="scss" scoped>
 .container {
   // width: 100%;
-  
+
   max-width: calc(100% - 30px);
   margin: 0 30px;
   margin: 0 auto;

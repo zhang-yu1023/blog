@@ -3,7 +3,7 @@
     <n-tab-pane name="list" tab="文章列表">
       <div v-for="(blog, index) in blogListInfo" style="margin-bottom: 15px">
         <n-card :title="blog.title">
-          <div v-html="blog.content"></div>
+          <div v-html="blog.content" @click="toDetail(blog)"></div>
 
           <template #footer>
             <!-- 对齐发布时间和按钮 -->
@@ -143,6 +143,12 @@ const add = async () => {
 const toPage = async (pageNum) => {
   pageInfo.page = pageNum
   loadBlogs()
+}
+
+const toDetail = (blog) => {
+  console.log(blog)
+
+  router.push({ path: '/detail', query: { id: blog.id } })
 }
 
 const toUpdate = async (blog) => {

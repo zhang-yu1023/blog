@@ -6,7 +6,8 @@ body {
   width: 100%;
   min-width: 300px;
   /* 渐变背景 */
-  background: linear-gradient(150deg, #8fe2eb, #fef9d7);
+  /* background-image: url('../assets/背景.jpg'); */
+  background: linear-gradient(30deg, #8fe2eb, #fef9d7);
   /* 弹性布局 垂直居中 */
   /* display: flex; */
   /* justify-content: center;

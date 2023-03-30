@@ -1,4 +1,4 @@
-<template >
+<template>
   <div class="container">
     <n-button @click="back()">返回</n-button>
     <!-- 标题 -->
@@ -25,10 +25,11 @@ onMounted(() => {
 const loadBlog = async () => {
   let res = await axios.get('/blog/detail?id=' + route.query.id)
   blogInfo.value = res.data.rows[0]
-//   console.log(res)
+  //   console.log(res)
 }
 
 const back = () => {
+  //TODO:修改为回到上层目录
   router.push('/')
 }
 </script>
@@ -40,7 +41,8 @@ const back = () => {
 </style>
 <style lang="scss" scoped>
 .container {
-  width : 100wh;
-  margin: 0 auto;
+  width  : 100wh;
+  margin : 0 auto;
+  padding: 20px;
 }
 </style>

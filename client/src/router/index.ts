@@ -2,8 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 const router = createRouter({
   history: createWebHistory(),
   routes: [
+    { path: "/", component: () => import("../views/HomePage.vue") },
     { path: "/test", component: () => import("../views/test.vue") },
-    { path: "", component: () => import("../views/HomePage.vue") },
+    { path: "/main", component: () => import("../views/HomePage.vue") },
     { path: "/login", component: () => import("../views/Login.vue") },
     { path: "/detail", component: () => import("../views/Detail.vue") },
     {
