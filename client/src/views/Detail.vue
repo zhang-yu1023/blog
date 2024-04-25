@@ -2,7 +2,7 @@
   <div class="container">
     <n-button @click="back()">返回</n-button>
     <!-- 标题 -->
-    <n-h1>{{ blogInfo.title }}</n-h1>
+    <n-h1 style="margin-top: 10px; margin-left: 20px">{{ blogInfo.title }}</n-h1>
     <!-- 文章内容 -->
     <div class="blog-content">
       <div v-html="blogInfo.content"></div>
@@ -29,8 +29,7 @@ const loadBlog = async () => {
 }
 
 const back = () => {
-  //TODO:修改为回到上层目录
-  router.push('/')
+  router.push('/main')
 }
 </script>
 
@@ -41,8 +40,14 @@ const back = () => {
 </style>
 <style lang="scss" scoped>
 .container {
-  width  : 100wh;
-  margin : 0 auto;
-  padding: 20px;
+  width: 100wh;
+  margin: 0 auto;
+  padding: 30px;
+
+  .blog-content {
+    border: 2px solid #64676a;
+    border-radius: 3px;
+    padding: 20px;
+  }
 }
 </style>

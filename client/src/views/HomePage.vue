@@ -1,18 +1,18 @@
 <template>
   <div class="container">
     <div class="nav">
-      <div @click="homePage">首页</div>
+      <router-link to="/main" active-class="link" exact-active-class="link"> 首页 </router-link>
       <n-popselect
         @update:value="searchByCategory"
         v-model:value="selectCategory"
         :options="categoryOptions"
         trigger="click"
       >
-        <div>
-          分类<span>{{ cagetoryName }}</span>
-        </div>
+        <a>
+          分类<span>{{ cagetoryName }}</span></a
+        >
       </n-popselect>
-      <div @click="dashboard">后台</div>
+      <router-link to="/login">后台</router-link>
     </div>
     <n-divider />
     <n-space class="search">
@@ -150,18 +150,18 @@ const searchByCategory = (categoryId) => {
   padding-top: 20px;
   color: #64676a;
 
-  div {
+  a {
     cursor: pointer;
-    margin-right: 40px;
+    margin: 0 20px;
+    color: inhert;
 
     &:hover {
       color: orange;
     }
-
-    span {
-      font-size: 12px;
-    }
   }
+}
+.link {
+  color: orange;
 }
 .blog-card {
   margin-bottom: 15px;
@@ -175,7 +175,6 @@ const searchByCategory = (categoryId) => {
   line-height: 25px;
   color: #64676a;
 }
-
 .search {
   margin-bottom: 15px;
 }

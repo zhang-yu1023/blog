@@ -13,5 +13,14 @@
     {
       "path": "./tsconfig.vitest.json"
     }
-  ]
+  ],
+
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "module": "ESNext",
+    "target": "ESNext",
+    "lib": ["DOM", "ESNext"],
+    "ignoreDeprecations": "5.0"
+  }
 }

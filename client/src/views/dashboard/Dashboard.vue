@@ -1,10 +1,10 @@
 <template>
   <div class="main-panel">
     <div class="menus">
+      <!-- <button @click="toMainPage()">回到首页</button> -->
       <div v-for="(menu, index) in menus" @click="toPage(menu)">
         {{ menu.name }}
       </div>
-      <button @click="toMainPage()">回到首页</button>
     </div>
     <div style="padding: 20px; width: 100%">
       <router-view></router-view>
@@ -26,7 +26,7 @@ const adminStore = AdminStore()
 let menus = [
   { name: '文章管理', href: '/dashboard/article' },
   { name: '分类管理', href: '/dashboard/category' },
-  { name: '退出', href: 'logout' }
+  { name: '退出', href: '/main' }
 ]
 
 const toPage = (menu) => {
